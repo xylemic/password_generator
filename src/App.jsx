@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect, useRef } from 'react'
 import './App.css'
 
 function App() {
-  const [lenght, setLength] = useState(8);
+  const [length, setLength] = useState(8);
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCahrAllowed] = useState(false);
   const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ function App() {
     if (numberAllowed) str += "0123456789";
     if (charAllowed) str += "!@#$%^&*()_+";
 
-    for (let i = 1; i < lenght; i++) {
+    for (let i = 1; i < length; i++) {
       const index = Math.floor(Math.random() * str.length + 1);
 
       pass += str.charAt(index);
@@ -28,13 +28,13 @@ function App() {
 
   const copyPasswordToClipboard = () => {
     window.navigator.clipboard.writeText(password);
-    paswordRef.current?.select();
+    passwordRef.current?.select();
     // alert('Password copied to clipboard');
   }
 
   useEffect(() => {
     generatePassword();
-  }, [lenght, numberAllowed, charAllowed]);
+  }, [length, numberAllowed, charAllowed]);
 
 
   return (
@@ -66,7 +66,7 @@ function App() {
           name=''
           id=''
           />
-          <label htmlFor="length">length: {lenght}</label>
+          <label htmlFor="length">length: {length}</label>
         </div>
         <div className="flex items-center gap-x-1">
           <input 
